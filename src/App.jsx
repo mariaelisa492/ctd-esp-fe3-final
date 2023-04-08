@@ -3,6 +3,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import { ContextGlobal } from "./Components/utils/global.context";
+import "./App.css"
 
 function App() {
   const location = useLocation();
@@ -19,7 +20,7 @@ function App() {
   return (
     <div className={`app ${isDarkMode ? "dark" : "light"}`}>
       <Navbar />
-      <main>
+      <main className="container-grid">
         <Outlet />
       </main>
       <Footer />

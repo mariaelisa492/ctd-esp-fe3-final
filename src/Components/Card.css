@@ -1,0 +1,15 @@
+.container-image{
+    width: 150px;
+    height: 150px;
+}
+
+.button-favorite{
+    margin-bottom: 10px;
+    border: none;
+    cursor:pointer
+}
+
+.button-favorite:hover{
+    background-color: lightblue;
+    border: none;
+}

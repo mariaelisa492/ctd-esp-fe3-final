@@ -2,6 +2,7 @@ import React from 'react'
 import { ContextGlobal } from "../Components/utils/global.context";
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
+import "./Detail.css"
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -17,10 +18,10 @@ const Detail = () => {
       .then((res) => res.json())
       .then((data) => {
         setDentist(data);
-       })}, [id]);
+      })}, [id]);
   return (
     <>
-      <h1>Información dentista {dentist?.name} </h1>
+      <h1>Dentista: {dentist?.name} </h1>
       {dentist ? (
         <section>
 
@@ -29,14 +30,14 @@ const Detail = () => {
             <div className={`card ${isDarkMode ? "dark" : "light"}`}>
 
               <div>
-                <img src="/images/doctor.jpg" alt="dentist placeholder" />
+                <img src="/images/doctor.jpg" alt="dentist detail" className='image-detail'/>
               </div>
 
               <div>
                 <ul>
-                  <li>Nombre: {dentist.name}</li>
-                  <li>Email: {dentist.email}</li>
-                  <li>Teléfono: {dentist.phone}</li>
+                  <li><b>Nombre: </b>{dentist.name}</li>
+                  <li><b>Email: </b> {dentist.email}</li>
+                  <li><b>Teléfono: </b> {dentist.phone}</li>
                 </ul>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ContextGlobal } from './utils/global.context';
+import "./Card.css";
 
 export const getFavStorage = () => {
 	const localData = localStorage.getItem('favs');
@@ -21,10 +22,10 @@ const removeFavStorage = (id) => {
 
 const setFavStorage = (dentist) => {
 	const StorageFav = getFavStorage();
-	const ListaFav = StorageFav.filter((fav) => {
+	const ListFav = StorageFav.filter((fav) => {
 		return fav.id === dentist.id;
 	});
-	if (ListaFav.length === 0) {
+	if (ListFav.length === 0) {
 		StorageFav.push(dentist);
 		localStorage.setItem('favs', JSON.stringify(StorageFav));
 		alert('Destista agregado a tu lista de favoritos.');
@@ -39,10 +40,10 @@ const Card = ({ name, username, id }) => {
 
 	const isFavorited = (id) => {
 		const LocalData = getFavStorage();
-		const ListaFavoritos = LocalData.filter((fav) => {
+		const ListFavorites = LocalData.filter((fav) => {
 			return fav.id === id;
 		});
-		return ListaFavoritos.length === 1;
+		return ListFavorites.length === 1;
 	};
 
 	const addFav = () => {
@@ -57,13 +58,13 @@ const Card = ({ name, username, id }) => {
 	
 	return (
 		<div className={`card ${isDarkMode ? 'dark' : 'light'}`}>
-			<img src="/images/doctor.jpg" alt="doctor" />
-			<Link to={`/dentista/${id}`}>
-				<h5>{name}</h5>
+			<img className='container-image' src="/images/doctor.jpg" alt="doctor" />
+			<Link to={`/dentist/${id}`}>
+				<h3>{name}</h3>
 			</Link>
-			<p>{username}</p>
-			<button onClick={favorite ? removeFav : addFav} className={`${isDarkMode ? 'dark' : 'light'}`}>
-				{favorite ? 'Eliminar de favoritos 🚮' : 'Añadir a favoritos ❤️'}
+			<h5>{username}</h5>
+			<button onClick={favorite ? removeFav : addFav} className={`${isDarkMode ? 'dark' : 'light'} button-favorite` }>
+				{favorite ? 'Eliminar de favoritos 🗑️' : 'Añadir a favoritos ❤️'}
 			</button>
 		</div>
 	);
