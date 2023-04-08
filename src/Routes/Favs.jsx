@@ -5,7 +5,7 @@ const Favs = () => {
   const LocalFavs = getFavStorage();
 
   return (
-    <>
+    <div>
       <h1>Aquí encuentras a tus dentistas favoritos</h1>
       <div className="container card-grid ">
         {LocalFavs.length
@@ -14,7 +14,7 @@ const Favs = () => {
             ))
           : null}
       </div>
-    </>
+    </div>
   );
 };
 export default Favs;

@@ -54,6 +54,7 @@ const Card = ({ name, username, id }) => {
 	};
 
 	const favorite = isFavorited(id);
+	
 	return (
 		<div className={`card ${isDarkMode ? 'dark' : 'light'}`}>
 			<img src="/images/doctor.jpg" alt="doctor" />
